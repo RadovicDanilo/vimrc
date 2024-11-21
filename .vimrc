@@ -3,10 +3,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set clipboard=unnamedplus  " Clipboard support
 set number
-set number relativenumber
+set relativenumber
 set history=500
-set clipboard=unnamedplus  " Clipboard support in the IDE
 filetype plugin on
 filetype indent on
 set autoread
@@ -17,28 +17,44 @@ nmap <leader>w :w!<cr> " Fast saving
 
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit! " For Unix-based systems only
 
+" Center screen when navigating
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" QuickScope
+set quickscope
+let g:qs_lazy_highlight = 1
+let g:qs_highlight_on_keys = ['f', 't', 'F', 'T']
+
+highlight QuickScopePrimary guifg=#ff4500 gui=bold
+highlight QuickScopeSecondary guifg=#696969
+
+autocmd FileType markdown let b:qs_enable = 0
+autocmd FileType html let b:qs_enable = 0
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => IDE User Interface Enhancements
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set scrolloff=7 " Keep cursor centered
-set wildmenu " Enable better tab-completion
-
-set ruler " Always show current position
-set cmdheight=1 " Command line height
+set scrolloff=7
+set wildmenu
+set ruler
+set cmdheight=1
 
 set backspace=eol,start,indent
-set whichwrap+=<,>,h,l " Allow wrapping between lines with arrow keys
+set whichwrap+=<,>,h,l
 
-set ignorecase " Case insensitive search
-set smartcase " Case-sensitive if search pattern has uppercase
-set hlsearch " Highlight search results
-set incsearch " Incremental search
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
 
-set lazyredraw " Performance boost for macros
-set showmatch " Highlight matching brackets
-
-set noerrorbells " Disable annoying sound on errors
-set timeoutlen=500 " Set timeout for mappings
+set lazyredraw
+set showmatch
+set noerrorbells
+set timeoutlen=500
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors
@@ -57,17 +73,16 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Tabs and indentation
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set expandtab " Use spaces instead of tabs
+set expandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
-set autoindent " Auto indent
-set smartindent " Smart indent
+set autoindent
+set smartindent
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, buffers, and tabs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Window navigation
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -91,8 +106,8 @@ au TabLeave * let g:lasttab = tabpagenr()
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map 0 ^ " Jump to the first non-blank character
-nmap <M-j> mz:m+<cr>`z " Move line down
-nmap <M-k> mz:m-2<cr>`z " Move line up
+nmap <M-j> mz:m+<cr>`z
+nmap <M-k> mz:m-2<cr>`z
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
