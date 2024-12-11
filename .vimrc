@@ -17,11 +17,11 @@ filetype plugin on              " Enable file type plugins
 filetype indent on              " Enable file type indenting
 
 " Auto-check for changes when focus is gained
-au FocusGained,BufEnter * silent! checktime
+autocmd FocusGained,BufEnter * silent! checktime
 
 " Leader key configuration
 let mapleader = ","
-nmap <leader>w :w!<cr>          " Fast saving with <leader>w
+nmap <leader>w :w!<CR>          " Fast saving with <leader>w
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Navigation Enhancements
@@ -32,24 +32,24 @@ nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 
 " Window navigation with Ctrl-h/j/k/l
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
 
 " Buffer navigation
-map <leader>l :bnext<cr>
-map <leader>h :bprevious<cr>
+nmap <leader>l :bnext<CR>
+nmap <leader>h :bprevious<CR>
 
 " Tab navigation
-map <leader>tn :tabnew<cr>
-map <leader>tc :tabclose<cr>
-map <leader>t<leader> :tabnext<cr>
+nmap <leader>tn :tabnew<CR>
+nmap <leader>tc :tabclose<CR>
+nmap <leader>t<leader> :tabnext<CR>
 
 " Toggle between the last two tabs
 let g:lasttab = 1
 nmap <leader>tl :exe "tabn ".g:lasttab<CR>
-au TabLeave * let g:lasttab = tabpagenr()
+autocmd TabLeave * let g:lasttab = tabpagenr()
 
 " Clear search highlights quickly
 nnoremap <space><space> :noh<CR>
@@ -88,17 +88,17 @@ set nobackup                    " No backup files
 set noswapfile                  " No swap files
 
 " Automatically clean trailing spaces before saving certain file types
-fun! CleanExtraSpaces()
+function! CleanExtraSpaces()
     let save_cursor = getpos(".")
     let old_query = getreg('/')
     silent! %s/\s\+$//e
     call setpos('.', save_cursor)
     call setreg('/', old_query)
-endfun
+endfunction
 autocmd BufWritePre *.txt,*.js,*.py,*.sh call CleanExtraSpaces()
 
 " Return to last edit position when opening files
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Tabs and Indentation
@@ -113,11 +113,11 @@ set smartindent                 " Smart indentation for code
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map 0 ^                         " Jump to the first non-blank character
-nmap <M-j> mz:m+<cr>`z          " Move line down with Alt-j
-nmap <M-k> mz:m-2<cr>`z         " Move line up with Alt-k
+nmap 0 ^                        " Jump to the first non-blank character
+nmap <M-j> mz:m+<CR>`z          " Move line down with Alt-j
+nmap <M-k> mz:m-2<CR>`z         " Move line up with Alt-k
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell Checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>ss :setlocal spell!<cr>  " Toggle spell checking with <leader>ss
+nmap <leader>ss :setlocal spell!<CR>  " Toggle spell checking with <leader>ss
