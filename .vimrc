@@ -27,9 +27,12 @@ nmap <leader>w :w!<CR>          " Fast saving with <leader>w
 " => Navigation Enhancements
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Center the screen when navigating with Ctrl-d and Ctrl-u
-nnoremap <C-d> <C-d>zz
-nnoremap <C-u> <C-u>zz
+" Center the screen when navigating
+nnoremap <C-d> <C-d>zz          " Center on down movement
+nnoremap <C-u> <C-u>zz          " Center on up movement
+nnoremap n nzz                  " Center the screen after moving to the next search result
+nnoremap N Nzz                  " Center the screen after moving to the previous search result
+
 
 " Window navigation with Ctrl-h/j/k/l
 nnoremap <C-j> <C-W>j
@@ -38,8 +41,8 @@ nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 
 " Buffer navigation
-nmap <leader>l :bnext<CR>
-nmap <leader>h :bprevious<CR>
+nmap <leader>l :bnext<CR>zz
+nmap <leader>h :bprevious<CR>zz
 
 " Tab navigation
 nmap <leader>tn :tabnew<CR>

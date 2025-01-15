@@ -91,3 +91,15 @@ nmap <Leader>o :action ShowSettings<CR>
 
 " IntelliJ-specific Git command
 nmap <Leader>g :action Git<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" QuickScope
+set quickscope
+let g:qs_lazy_highlight = 1
+let g:qs_highlight_on_keys = ['f', 't', 'F', 'T']
+
+highlight QuickScopePrimary guifg=#ff4500 gui=bold
+highlight QuickScopeSecondary guifg=#696969
+
