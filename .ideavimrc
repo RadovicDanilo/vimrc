@@ -2,76 +2,50 @@
 " => IdeaVimRC - IntelliJ IDEA-specific Vim Configurations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Source the main VimRC to reuse all shared settings and mappings
 source ~/.vimrc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Navigation Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Pane navigation
 nmap <Leader>h :action FocusPreviousWindow<CR>
 nmap <Leader>l :action FocusNextWindow<CR>
-
-" Navigate to declaration or usages
 nmap <Leader>d :action GotoDeclaration<CR>
 nmap <Leader>u :action FindUsages<CR>
-
-" Open project structure
 nmap <Leader>s :action ShowStructureViewPopup<CR>
-
-" Open recent files popup
 nmap <Leader>e :action RecentFiles<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => File and Tab Management
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Save all files
 nmap <Leader>w :action SaveAll<CR>
-
-" Close current tab
 nmap <Leader>x :action CloseActiveTab<CR>
 nmap <Leader>q :action CloseActiveTab<CR>
-
-" Toggle terminal
 nmap <Leader>t :action ActivateTerminalToolWindow<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Code Editing and Refactoring
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Comment code
 nmap <Leader>c :action CommentByLineComment<CR>
-
-" Open refactor menu
 nmap <Leader>r :action Refactorings.QuickListPopupAction<CR>
-
-" Format code
 nmap <Leader>f :action ReformatCode<CR>
-
-" Optimize imports
 nmap <Leader>i :action OptimizeImports<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Search and Replace
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Search All
 nmap <Leader>F :action SearchEverywhere<CR>
-
-" Find and Replace
 nmap <Leader>R :action ReplaceInPath<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Run and Debug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Run mappings
 nmap <Leader>rr :action Run<CR>
 nmap <Leader>rc :action RunClass<CR>
-
-" Debug mappings
 nmap <Leader>d :action Debug<CR>
 nmap <Leader>dc :action DebugClass<CR>
 
@@ -79,27 +53,25 @@ nmap <Leader>dc :action DebugClass<CR>
 " => Bookmarks and TODOs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Show TODO list
 nmap <Leader>td :action TODOView<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Miscellaneous
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Open settings
 nmap <Leader>o :action ShowSettings<CR>
-
-" IntelliJ-specific Git command
 nmap <Leader>g :action Git<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" QuickScope
-set quickscope
+
+let g:qs_enable = 1
+
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+let g:qs_primary_color = '#aa44ff'
+
+let g:qs_disable_for_diffs = 1
+
 let g:qs_lazy_highlight = 1
-let g:qs_highlight_on_keys = ['f', 't', 'F', 'T']
-
-highlight QuickScopePrimary guifg=#ff4500 gui=bold
-highlight QuickScopeSecondary guifg=#696969
-
